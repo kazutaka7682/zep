@@ -3,8 +3,15 @@ import asyncio
 from zep_python.client import AsyncZep
 from zep_python.types import Message
 import uuid
+from dotenv import load_dotenv
 
-API_KEY = "zep_api_secret"
+# Load environment variables from .env file
+load_dotenv()
+
+API_KEY = os.getenv("ZEP_API_SECRET")
+if not API_KEY:
+    raise ValueError("ZEP_API_SECRET environment variable is required")
+
 BASE_URL = "http://localhost:8000"
 
 async def main():
