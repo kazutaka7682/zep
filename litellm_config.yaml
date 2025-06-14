@@ -1,0 +1,20 @@
+model_list:
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: azure/${AZURE_LLM_DEPLOYMENT_NAME}
+      api_base: ${AZURE_OPENAI_ENDPOINT}
+      api_version: ${AZURE_OPENAI_API_VERSION}
+      api_key: ${AZURE_OPENAI_API_KEY}
+  - model_name: text-embedding-3-small
+    litellm_params:
+      model: azure/${AZURE_EMBEDDING_DEPLOYMENT_NAME}
+      api_base: ${AZURE_OPENAI_ENDPOINT}
+      api_version: ${AZURE_OPENAI_API_VERSION}
+      api_key: ${AZURE_OPENAI_API_KEY}
+
+general_settings:
+  master_key: ${LITELLM_MASTER_KEY}
+
+litellm_settings:
+  drop_params: true
+  set_verbose: false
