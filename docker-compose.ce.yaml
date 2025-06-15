@@ -42,8 +42,6 @@ services:
     image: zepai/graphiti:0.3
     ports:
       - "8003:8003"
-    env_file:
-      - .env
     networks:
       - zep-network
     healthcheck:
@@ -61,7 +59,7 @@ services:
       neo4j:
         condition: service_healthy
     environment:
-      - OPENAI_API_KEY=zep-proxy-key
+      - OPENAI_API_KEY=dummy
       - OPENAI_BASE_URL=http://host.docker.internal:4000
       - MODEL_NAME=gpt-4o-mini
       - NEO4J_URI=bolt://neo4j:7687
