@@ -5,8 +5,8 @@ from zep_python.types import Message
 import uuid
 from dotenv import load_dotenv
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from parent directory .env file
+load_dotenv("../.env")
 
 API_KEY = os.getenv("ZEP_API_SECRET")
 if not API_KEY:
@@ -62,7 +62,7 @@ async def main():
     # メモリ取得
     memory = await zep.memory.get(session_id=session_id)
     # メッセージ取得（会話履歴のリスト）
-    messages = memory.messages
+    messages = memory.messages  # セッション内のメッセージのリスト (量はmemory.getのオプションlastnパラメータで指定)
     for m in messages:
         print(m.role_type, ":", m.content)
     # メッセージから取り出された事実の取得（最近のメッセージに関連する事実のリスト）
