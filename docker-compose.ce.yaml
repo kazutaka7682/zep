@@ -59,9 +59,9 @@ services:
       neo4j:
         condition: service_healthy
     environment:
-      - OPENAI_API_KEY=dummy
+      - OPENAI_API_KEY=zep-proxy-key # key to access zep-proxy
       - OPENAI_BASE_URL=http://host.docker.internal:4000
-      - MODEL_NAME=gpt-4o-mini
+      - MODEL_NAME=dummy-model
       - NEO4J_URI=bolt://neo4j:7687
       - NEO4J_USER=neo4j
       - NEO4J_PASSWORD=zepzepzep
